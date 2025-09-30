@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-PromptsListRes">
+  <DisplayName>AM-PromptsListRes</DisplayName>
+  <Set>
+    <StatusCode>200</StatusCode>
+    <Payload contentType="application/json">{
+  "jsonrpc": "2.0",
+  "id": {mcp.id},
+  "result": {
+    "prompts": []
+  }
+}</Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

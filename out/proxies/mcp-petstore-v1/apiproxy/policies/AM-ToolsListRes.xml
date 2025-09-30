@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-ToolsListRes">
+  <DisplayName>AM-ToolsListRes</DisplayName>
+  <Set>
+    <StatusCode>200</StatusCode>
+    <Payload contentType="application/json">{
+  "jsonrpc": "2.0",
+  "id": {mcp.id},
+  "result": {
+    "tools": 
+     
+      [
+        {
+          "description": "Update an existing pet by Id",
+          "inputSchema": {
+            "properties": {
+              "Pet": {
+                "properties": {
+                  "category": {
+                    "properties": {
+                      "id": {
+                        "example": 1,
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "name": {
+                        "example": "Dogs",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "xml": {
+                      "name": "category"
+                    }
+                  },
+                  "id": {
+                    "example": 10,
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "name": {
+                    "example": "doggie",
+                    "type": "string"
+                  },
+                  "photoUrls": {
+                    "items": {
+                      "type": "string",
+                      "xml": {
+                        "name": "photoUrl"
+                      }
+                    },
+                    "type": "array",
+                    "xml": {
+                      "wrapped": true
+                    }
+                  },
+                  "status": {
+                    "description": "pet status in the store",
+                    "enum": [
+                      "available",
+                      "pending",
+                      "sold"
+                    ],
+                    "type": "string"
+                  },
+                  "tags": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "format": "int64",
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "xml": {
+                        "name": "tag"
+                      }
+                    },
+                    "type": "array",
+                    "xml": {
+                      "wrapped": true
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "photoUrls"
+                ],
+                "type": "object",
+                "xml": {
+                  "name": "pet"
+                }
+              }
+            },
+            "type": "object"
+          },
+          "name": "updatePet",
+          "title": "Update an existing pet"
+        },
+        {
+          "description": "Add a new pet to the store",
+          "inputSchema": {
+            "properties": {
+              "Pet": {
+                "properties": {
+                  "category": {
+                    "properties": {
+                      "id": {
+                        "example": 1,
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "name": {
+                        "example": "Dogs",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "xml": {
+                      "name": "category"
+                    }
+                  },
+                  "id": {
+                    "example": 10,
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "name": {
+                    "example": "doggie",
+                    "type": "string"
+                  },
+                  "photoUrls": {
+                    "items": {
+                      "type": "string",
+                      "xml": {
+                        "name": "photoUrl"
+                      }
+                    },
+                    "type": "array",
+                    "xml": {
+                      "wrapped": true
+                    }
+                  },
+                  "status": {
+                    "description": "pet status in the store",
+                    "enum": [
+                      "available",
+                      "pending",
+                      "sold"
+                    ],
+                    "type": "string"
+                  },
+                  "tags": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "format": "int64",
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "xml": {
+                        "name": "tag"
+                      }
+                    },
+                    "type": "array",
+                    "xml": {
+                      "wrapped": true
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "photoUrls"
+                ],
+                "type": "object",
+                "xml": {
+                  "name": "pet"
+                }
+              }
+            },
+            "type": "object"
+          },
+          "name": "addPet",
+          "title": "Add a new pet to the store"
+        },
+        {
+          "description": "Multiple status values can be provided with comma separated strings",
+          "inputSchema": {
+            "properties": {
+              "status": {
+                "default": "available",
+                "enum": [
+                  "available",
+                  "pending",
+                  "sold"
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "findPetsByStatus",
+          "title": "Finds Pets by status"
+        },
+        {
+          "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
+          "inputSchema": {
+            "properties": {
+              "tags": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "name": "findPetsByTags",
+          "title": "Finds Pets by tags"
+        },
+        {
+          "description": "Returns a single pet",
+          "inputSchema": {
+            "properties": {
+              "petId": {
+                "format": "int64",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "name": "getPetById",
+          "title": "Find pet by ID"
+        },
+        {
+          "description": "",
+          "inputSchema": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "petId": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "updatePetWithForm",
+          "title": "Updates a pet in the store with form data"
+        },
+        {
+          "description": "",
+          "inputSchema": {
+            "properties": {
+              "api_key": {
+                "type": "string"
+              },
+              "petId": {
+                "format": "int64",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "name": "deletePet",
+          "title": "Deletes a pet"
+        },
+        {
+          "description": "",
+          "inputSchema": {
+            "properties": {
+              "additionalMetadata": {
+                "type": "string"
+              },
+              "petId": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "uploadFile_body": {
+                "format": "binary",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "uploadFile",
+          "title": "uploads an image"
+        },
+        {
+          "description": "Returns a map of status codes to quantities",
+          "inputSchema": {
+            "properties": {},
+            "type": "object"
+          },
+          "name": "getInventory",
+          "title": "Returns pet inventories by status"
+        },
+        {
+          "description": "Place a new order in the store",
+          "inputSchema": {
+            "properties": {
+              "Order": {
+                "properties": {
+                  "complete": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "example": 10,
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "petId": {
+                    "example": 198772,
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "example": 7,
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "shipDate": {
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Order Status",
+                    "enum": [
+                      "placed",
+                      "approved",
+                      "delivered"
+                    ],
+                    "example": "approved",
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "xml": {
+                  "name": "order"
+                }
+              }
+            },
+            "type": "object"
+          },
+          "name": "placeOrder",
+          "title": "Place an order for a pet"
+        },
+        {
+          "description": "For valid response try integer IDs with value \u003c= 5 or \u003e 10. Other values will generate exceptions.",
+          "inputSchema": {
+            "properties": {
+              "orderId": {
+                "format": "int64",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "name": "getOrderById",
+          "title": "Find purchase order by ID"
+        },
+        {
+          "description": "For valid response try integer IDs with value \u003c 1000. Anything above 1000 or nonintegers will generate API errors",
+          "inputSchema": {
+            "properties": {
+              "orderId": {
+                "format": "int64",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "name": "deleteOrder",
+          "title": "Delete purchase order by ID"
+        },
+        {
+          "description": "This can only be done by the logged in user.",
+          "inputSchema": {
+            "properties": {
+              "User": {
+                "properties": {
+                  "email": {
+                    "example": "john@email.com",
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "example": "John",
+                    "type": "string"
+                  },
+                  "id": {
+                    "example": 10,
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "lastName": {
+                    "example": "James",
+                    "type": "string"
+                  },
+                  "password": {
+                    "example": "12345",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "example": "12345",
+                    "type": "string"
+                  },
+                  "userStatus": {
+                    "description": "User Status",
+                    "example": 1,
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "username": {
+                    "example": "theUser",
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "xml": {
+                  "name": "user"
+                }
+              }
+            },
+            "type": "object"
+          },
+          "name": "createUser",
+          "title": "Create user"
+        },
+        {
+          "description": "Creates list of users with given input array",
+          "inputSchema": {
+            "properties": {
+              "createUsersWithListInput_body": {
+                "items": {
+                  "properties": {
+                    "email": {
+                      "example": "john@email.com",
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "example": "John",
+                      "type": "string"
+                    },
+                    "id": {
+                      "example": 10,
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "lastName": {
+                      "example": "James",
+                      "type": "string"
+                    },
+                    "password": {
+                      "example": "12345",
+                      "type": "string"
+                    },
+                    "phone": {
+                      "example": "12345",
+                      "type": "string"
+                    },
+                    "userStatus": {
+                      "description": "User Status",
+                      "example": 1,
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "username": {
+                      "example": "theUser",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "xml": {
+                    "name": "user"
+                  }
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "name": "createUsersWithListInput",
+          "title": "Creates list of users with given input array"
+        },
+        {
+          "description": "",
+          "inputSchema": {
+            "properties": {
+              "password": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "loginUser",
+          "title": "Logs user into the system"
+        },
+        {
+          "description": "",
+          "inputSchema": {
+            "properties": {},
+            "type": "object"
+          },
+          "name": "logoutUser",
+          "title": "Logs out current logged in user session"
+        },
+        {
+          "description": "",
+          "inputSchema": {
+            "properties": {
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "getUserByName",
+          "title": "Get user by user name"
+        },
+        {
+          "description": "This can only be done by the logged in user.",
+          "inputSchema": {
+            "properties": {
+              "User": {
+                "properties": {
+                  "email": {
+                    "example": "john@email.com",
+                    "type": "string"
+                  },
+                  "firstName": {
+                    "example": "John",
+                    "type": "string"
+                  },
+                  "id": {
+                    "example": 10,
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "lastName": {
+                    "example": "James",
+                    "type": "string"
+                  },
+                  "password": {
+                    "example": "12345",
+                    "type": "string"
+                  },
+                  "phone": {
+                    "example": "12345",
+                    "type": "string"
+                  },
+                  "userStatus": {
+                    "description": "User Status",
+                    "example": 1,
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "username": {
+                    "example": "theUser",
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "xml": {
+                  "name": "user"
+                }
+              },
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "updateUser",
+          "title": "Update user"
+        },
+        {
+          "description": "This can only be done by the logged in user.",
+          "inputSchema": {
+            "properties": {
+              "username": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "name": "deleteUser",
+          "title": "Delete user"
+        }
+      ]
+    
+  }
+}</Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

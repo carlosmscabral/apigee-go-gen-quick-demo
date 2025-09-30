@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Javascript continueOnError="false" enabled="true" timeLimit="200" name="JS-ProcessToolRes">
+  <DisplayName>JS-ProcessToolRes</DisplayName>
+  <IncludeURL>jsc://mcp.cjs</IncludeURL>
+  <ResourceURL>jsc://process-tool-res.cjs</ResourceURL>
+</Javascript>

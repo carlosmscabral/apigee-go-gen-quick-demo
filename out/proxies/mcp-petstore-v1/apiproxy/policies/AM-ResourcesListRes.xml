@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-ResourcesListRes">
+  <DisplayName>AM-ResourcesListRes</DisplayName>
+  <Set>
+    <StatusCode>200</StatusCode>
+    <Payload contentType="application/json">{
+  "jsonrpc": "2.0",
+  "id": {mcp.id},
+  "result": {
+    "resources": []
+  }
+}</Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

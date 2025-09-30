@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TargetEndpoint name="tool-call">
+  <FaultRules>
+    <FaultRule name="custom-error">
+      <Condition>error_body != null</Condition>
+      <Step>
+        <Name>AM-SetCustomError</Name>
+      </Step>
+    </FaultRule>
+  </FaultRules>
+  <DefaultFaultRule name="default-fault">
+    <Step>
+      <Name>AM-SetGenericError</Name>
+    </Step>
+  </DefaultFaultRule>
+  <PreFlow name="">
+    <Request>
+      <Step>
+        <Name>JS-SetTarget</Name>
+      </Step>
+    </Request>
+    <Response>
+      <Step>
+        <Name>JS-ProcessToolRes</Name>
+      </Step>
+    </Response>
+  </PreFlow>
+  <Flows/>
+  <PostFlow name=""/>
+  <HTTPTargetConnection>
+    <URL>https://foo.bar</URL>
+    <SSLInfo>
+      <Enabled>true</Enabled>
+      <Enforce>true</Enforce>
+      <IgnoreValidationErrors>true</IgnoreValidationErrors>
+    </SSLInfo>
+    <Properties>
+      <Property name="success.codes">1xx,2xx,3xx,4xx,5xx</Property>
+    </Properties>
+  </HTTPTargetConnection>
+</TargetEndpoint>

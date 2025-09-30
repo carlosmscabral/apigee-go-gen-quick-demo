@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-InitializeRes">
+  <DisplayName>AM-InitializeRes</DisplayName>
+  <Set>
+    <StatusCode>200</StatusCode>
+    <Payload contentType="application/json">{
+  "jsonrpc": "2.0",
+  "id": {mcp.id},
+  "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "serverInfo": {
+      "name": "mcp-swagger-petstore-openapi-3-0",
+      "title": "Apigee generated MCP API Proxy.",
+      "version": "1.0.19"
+    },
+    "instructions": ""
+  }
+}</Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Javascript continueOnError="false" enabled="true" timeLimit="200" name="JS-ProcessReq">
+  <DisplayName>JS-ProcessReq</DisplayName>
+  <Properties/>
+  <IncludeURL>jsc://mcp.cjs</IncludeURL>
+  <ResourceURL>jsc://process-req.cjs</ResourceURL>
+</Javascript>

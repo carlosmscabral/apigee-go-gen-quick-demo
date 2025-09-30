@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-SetCustomError">
+  <DisplayName>AM-SetCustomError</DisplayName>
+  <Set>
+    <Payload contentType="application/json">{error_body}</Payload>
+    <StatusCode>{error_status}</StatusCode>
+  </Set>
+</AssignMessage>

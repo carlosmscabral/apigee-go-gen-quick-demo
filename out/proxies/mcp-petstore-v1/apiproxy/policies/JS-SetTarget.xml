@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Javascript continueOnError="false" enabled="true" timeLimit="200" name="JS-SetTarget">
+  <DisplayName>JS-SetTarget</DisplayName>
+  <IncludeURL>jsc://mcp.cjs</IncludeURL>
+  <ResourceURL>jsc://setup-tool-target.cjs</ResourceURL>
+</Javascript>

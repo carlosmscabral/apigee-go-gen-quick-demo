@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProxyEndpoint name="default">
+  <FaultRules>
+    <FaultRule name="custom-error">
+      <Condition>error_body != null</Condition>
+      <Step>
+        <Name>AM-SetCustomError</Name>
+      </Step>
+    </FaultRule>
+  </FaultRules>
+  <DefaultFaultRule name="default-fault">
+    <Step>
+      <Name>AM-SetGenericError</Name>
+    </Step>
+  </DefaultFaultRule>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>JS-ProcessReq</Name>
+        <Condition>request.header.Content-Type = "application/json" and request.verb = "POST"</Condition>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <Flows>
+    <Flow name="initialize">
+      <Condition>mcp.method = "initialize"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-InitializeRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="initialized">
+      <Condition>mcp.method = "notifications/initialized"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-InitializedRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="resources/templates/list">
+      <Condition>mcp.method = "resources/templates/list"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-ResourcesTemplatesListRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="resources/list">
+      <Condition>mcp.method = "resources/list"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-ResourcesListRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="prompts/list">
+      <Condition>mcp.method = "prompts/list"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-PromptsListRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="tools/list">
+      <Condition>mcp.method = "tools/list"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-ToolsListRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="ping">
+      <Condition>mcp.method = "ping"</Condition>
+      <Request/>
+      <Response>
+        <Step>
+          <Name>AM-PingRes</Name>
+        </Step>
+      </Response>
+    </Flow>
+    <Flow name="tool-addPet">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "addPet")</Condition>
+    </Flow>
+    <Flow name="tool-createUser">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "createUser")</Condition>
+    </Flow>
+    <Flow name="tool-createUsersWithListInput">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "createUsersWithListInput")</Condition>
+    </Flow>
+    <Flow name="tool-deleteOrder">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "deleteOrder")</Condition>
+    </Flow>
+    <Flow name="tool-deletePet">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "deletePet")</Condition>
+    </Flow>
+    <Flow name="tool-deleteUser">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "deleteUser")</Condition>
+    </Flow>
+    <Flow name="tool-findPetsByStatus">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "findPetsByStatus")</Condition>
+    </Flow>
+    <Flow name="tool-findPetsByTags">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "findPetsByTags")</Condition>
+    </Flow>
+    <Flow name="tool-getInventory">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "getInventory")</Condition>
+    </Flow>
+    <Flow name="tool-getOrderById">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "getOrderById")</Condition>
+    </Flow>
+    <Flow name="tool-getPetById">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "getPetById")</Condition>
+    </Flow>
+    <Flow name="tool-getUserByName">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "getUserByName")</Condition>
+    </Flow>
+    <Flow name="tool-loginUser">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "loginUser")</Condition>
+    </Flow>
+    <Flow name="tool-logoutUser">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "logoutUser")</Condition>
+    </Flow>
+    <Flow name="tool-placeOrder">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "placeOrder")</Condition>
+    </Flow>
+    <Flow name="tool-updatePet">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "updatePet")</Condition>
+    </Flow>
+    <Flow name="tool-updatePetWithForm">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "updatePetWithForm")</Condition>
+    </Flow>
+    <Flow name="tool-updateUser">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "updateUser")</Condition>
+    </Flow>
+    <Flow name="tool-uploadFile">
+      <Condition>(mcp.method = "tools/call") and (mcp.params.name = "uploadFile")</Condition>
+    </Flow>
+  </Flows>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <HTTPProxyConnection>
+    <BasePath>/mcp/v3/petstore</BasePath>
+  </HTTPProxyConnection>
+  <RouteRule name="tool-call">
+    <Condition>mcp.method = "tools/call"</Condition>
+    <TargetEndpoint>tool-call</TargetEndpoint>
+  </RouteRule>
+  <RouteRule name="no-op"/>
+</ProxyEndpoint>
